@@ -1,0 +1,63 @@
+esphome:
+  name: zb-sensor
+  platformio_options:
+    platform: https://github.com/luar123/platform-espressif32H2/archive/refs/tags/v6.5.1.zip
+  includes:
+    - esphome_zb.h
+    - esp_zb_light.c
+    - esp_zb_light.h
+    
+esp32:
+  board: esp32-h2-devkitm-1
+  flash_size: 4MB
+  partitions: partitions_zb.csv
+  framework:
+    type: esp-idf
+    version: 5.1.2
+    sdkconfig_options:
+      CONFIG_ESPTOOLPY_FLASHSIZE_4MB: y
+      CONFIG_ZB_ENABLED: y
+      CONFIG_ZB_ZED: y
+      CONFIG_ZB_RADIO_NATIVE: y
+      ZB_ED_ROLE: y
+  variant: esp32h2
+
+# Enable logging
+logger:
+  hardware_uart: UART0
+    
+i2c:
+  sda: 12
+  scl: 22
+
+sensor:
+  - platform: aht10
+    variant: AHT10
+    temperature:
+      name: "Living Room Temperature"
+      id: "temp"
+      filters:
+        - delta: 0.1
+      on_value:
+        then:
+          - lambda: |-
+                int16_t value = (int16_t)(x*100);
+                reportAttribute(ESP_ZB_ZCL_CLUSTER_ID_TEMP_MEASUREMENT, ESP_ZB_ZCL_ATTR_TEMP_MEASUREMENT_VALUE_ID, &value);
+    humidity:
+      name: "Living Room Humidity"
+      id: "hum"
+      filters:
+        - delta: 1
+      on_value:
+        then:
+          - lambda: |-
+                int16_t value = (int16_t)(x*100);
+                reportAttribute(ESP_ZB_ZCL_CLUSTER_ID_REL_HUMIDITY_MEASUREMENT, ESP_ZB_ZCL_ATTR_REL_HUMIDITY_MEASUREMENT_VALUE_ID, &value);
+    update_interval: 60s
+
+custom_component:
+- lambda: |-
+    auto my_zb = new esphomeZB();
+    return {my_zb};
+  components:
+  - id: zb
