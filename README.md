@@ -7,4 +7,4 @@ Build:
 * esphome run ZB_sensor
 
 Notes:
-* there is a bug in esphome 2024.3.0. Deactivate the logger to make it build.
+* There is a bug in [ESPHome 2024.3.0](https://esphome.io/changelog/2024.3.0.html). Deactivate the logger to make it build.
