@@ -1,4 +1,6 @@
-esp32-h2 based temperatur/huminity sensor.
+# ESP32-H2 Zigbee
+
+## Zigbee based temperature/humidity sensor
 
 Build:
 * esphome run ZB_sensor (will fail)
