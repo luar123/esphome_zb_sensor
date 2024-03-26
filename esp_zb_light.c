@@ -120,7 +120,9 @@ void esp_zb_app_signal_handler(esp_zb_app_signal_t *signal_struct)
             cmd_req.zcl_basic_cmd.dst_endpoint = 1;
             cmd_req.zcl_basic_cmd.dst_addr_u.addr_short = 0x0000;
             cmd_req.clusterID = ESP_ZB_ZCL_CLUSTER_ID_TIME;
-            cmd_req.attributeID = ESP_ZB_ZCL_ATTR_TIME_LOCAL_TIME_ID;                                                   
+            cmd_req.attr_number = 1;
+            uint16_t attributeID = ESP_ZB_ZCL_ATTR_TIME_LOCAL_TIME_ID;    
+            cmd_req.attr_field = &attributeID;                                                    
             esp_zb_zcl_read_attr_cmd_req( &cmd_req);
 
         } else {
@@ -167,18 +169,24 @@ static esp_err_t zb_response_handler(const esp_zb_zcl_cmd_read_attr_resp_message
     ESP_RETURN_ON_FALSE(message->info.status == ESP_ZB_ZCL_STATUS_SUCCESS, ESP_ERR_INVALID_ARG, TAG,
                         "Received message: error status(%d)", message->info.status);
     ESP_LOGI(TAG, "Received message: endpoint(%d), cluster(0x%x), attribute(0x%x), data size(%d)",
-             message->info.dst_endpoint, message->info.cluster, message->attribute.id, message->attribute.data.size);
+             message->info.dst_endpoint, message->info.cluster, message->variables->attribute.id, message->variables->attribute.data.size);
     
     if (message->info.dst_endpoint == HA_ESP_LIGHT_ENDPOINT) {
         if (message->info.cluster == ESP_ZB_ZCL_CLUSTER_ID_TIME) {
-            if (message->attribute.id == ESP_ZB_ZCL_ATTR_TIME_LOCAL_TIME_ID &&
-                message->attribute.data.type == ESP_ZB_ZCL_ATTR_TYPE_U32) {
-                //todo set time
-                ESP_LOGI(TAG, "Local Time received: %u", *(unsigned int *)(uint32_t *)message->attribute.data.value);
+            esp_zb_zcl_read_attr_resp_variable_t *var = message->variables;
+            while (var->next != NULL)
+            {
+                if (var->attribute.id == ESP_ZB_ZCL_ATTR_TIME_LOCAL_TIME_ID &&
+                    var->attribute.data.type == ESP_ZB_ZCL_ATTR_TYPE_U32) {
+                    //todo set time
+                    ESP_LOGI(TAG, "Local Time received: %u", *(unsigned int *)(uint32_t *)var->attribute.data.value);
+                        //light_driver_set_power(light_state);
+                }
+                var = var->next;
             }
         }
         if (message->info.cluster == ESP_ZB_ZCL_CLUSTER_ID_TIME) {
-                ESP_LOGI(TAG, "id 0x%x, type 0x%x, value x", message->attribute.id, message->attribute.data.type);
+                ESP_LOGI(TAG, "id 0x%x, type 0x%x, value x", message->variables->attribute.id, message->variables->attribute.data.type);
         }
     }
     return ret;

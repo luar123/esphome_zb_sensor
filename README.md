@@ -19,3 +19,4 @@ ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://n
 * There is a bug in [ESPHome 2024.3.0](https://esphome.io/changelog/2024.3.0.html). Deactivate the logger to make it build.
   * Check issue [2024.3.0 fails to compile in logger component #5612](https://github.com/esphome/issues/issues/5612).
   * This should be fixed by esphome/esphome#6323 which should be included in ESPHome 2024.3.1.
+* If library versions in [idf_component.yml](idf_component.yml) are changed, copy the file to `.esphome/build/zb-sensor/src/` again and delete `.esphome/build/zb-sensor/.pioenvs`.
