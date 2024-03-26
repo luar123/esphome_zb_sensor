@@ -10,3 +10,5 @@
 
 ### Notes
 * There is a bug in [ESPHome 2024.3.0](https://esphome.io/changelog/2024.3.0.html). Deactivate the logger to make it build.
+  * Check issue [2024.3.0 fails to compile in logger component #5612](https://github.com/esphome/issues/issues/5612).
+  * This should be fixed by esphome/esphome#6323 which should be included in ESPHome 2024.3.1.
