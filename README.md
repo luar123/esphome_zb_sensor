@@ -2,6 +2,8 @@
 
 ## Zigbee based temperature/humidity sensor
 
+ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://next.esphome.io/components/sensor/aht10).
+
 ### Build ESPHome Zigbee sensor
 
 Check [Getting Started with the ESPHome Command Line](https://esphome.io/guides/getting_started_command_line.html) tutorial.
