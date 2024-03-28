@@ -36,15 +36,15 @@ ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://n
 
 Note! The official documentation and reference examples for the ESP Zigbee SDK can currently be obtained from Espressif:
 
-- https://docs.espressif.com/projects/esp-zigbee-sdk
-  - https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32/
-    - https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32h2/application.html
-    - https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32c6/application.html
-- https://github.com/espressif/esp-zigbee-sdk
-  - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/
-    - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample
-      - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_temperature_sensor
-      - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_on_off_light
+ - [ESP32 Zigbee SDK Programming Guide](https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32/)
+   - [ESP32-H2 Application User Guide](https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32h2/application.html)
+   - [ESP32-C6 Application User Guide](https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32c6/application.html)
+- [ESP-Zigbee-SDK Github repo](https://github.com/espressif/esp-zigbee-sdk)
+  - [ESP-Zigbee-SDK examples](https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/)
+    - [Zigbee HA Example](https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample)
+      - [Zigbee HA Light Bulb example](https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_on_off_light)
+      - [Zigbee HA temperature sensor example](https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_temperature_sensor)
+      - [Zigbee HA thermostat example](https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_thermostat)
 
 ## How to contribute
 
