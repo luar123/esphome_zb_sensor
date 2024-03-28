@@ -1,8 +1,19 @@
-# ESP32-H2 Zigbee
+# ESPHome Zigbee sensor using ESP32-H2
 
-## Zigbee based temperature/humidity sensor
+ESPHome example of a zigbee sensor.
+
+Note that the Zigbee part in this project is currently hardcoded and included as a custom component including a task. (Changing this to an external component with more configuration possibilities would be the next step).
+
+## Zigbee based temperature and humidity sensor
 
 ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://next.esphome.io/components/sensor/aht10).
+
+### Hardware Required
+
+* One development board with ESP32-H2 SoC acting as Zigbee end-device (that you will load ESPHome with the zb-sensor config to).
+  * For example the official [ESP32-H2-DevKitM-1](https://docs.espressif.com/projects/espressif-esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html) development kit board.
+* [AHT10 Temperature+Humidity Sensor](https://next.esphome.io/components/sensor/aht10).
+* A USB cable for power supply and programming.
 
 ### Build ESPHome Zigbee sensor
 
@@ -20,3 +31,25 @@ ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://n
   * Check issue [2024.3.0 fails to compile in logger component #5612](https://github.com/esphome/issues/issues/5612).
   * This should be fixed by esphome/esphome#6323 which should be included in ESPHome 2024.3.1.
 * If library versions in [idf_component.yml](idf_component.yml) are changed, copy the file to `.esphome/build/zb-sensor/src/` again and delete `.esphome/build/zb-sensor/.pioenvs`.
+
+## External documentation and reference
+
+Note! The official documentation and reference examples for the ESP Zigbee SDK can currently be obtained from Espressif:
+
+- https://docs.espressif.com/projects/esp-zigbee-sdk
+  - https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32/
+    - https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32h2/application.html
+    - https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32c6/application.html
+- https://github.com/espressif/esp-zigbee-sdk
+  - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/
+    - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample
+      - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_temperature_sensor
+      - https://github.com/espressif/esp-zigbee-sdk/tree/main/examples/esp_zigbee_HA_sample/HA_on_off_light
+
+## How to contribute
+
+If looking to contribute to this project then suggest follow steps in these guides + look at issues in Espressif's ESP Zigbee SDK repoository:
+
+- https://github.com/espressif/esp-zigbee-sdk/issues
+- https://github.com/firstcontributions/first-contributions/blob/master/README.md
+- https://github.com/firstcontributions/first-contributions/blob/master/github-desktop-tutorial.md
