@@ -12,7 +12,7 @@ ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://n
 
 * One development board with ESP32-H2 SoC acting as Zigbee end-device (that you will load ESPHome with the zb-sensor config to).
   * For example the official [ESP32-H2-DevKitM-1](https://docs.espressif.com/projects/espressif-esp-dev-kits/en/latest/esp32h2/esp32-h2-devkitm-1/user_guide.html) development kit board.
-* [AHT10 Temperature+Humidity Sensor](https://next.esphome.io/components/sensor/aht10).
+* [AHT10 Temperature+Humidity Sensor](https://next.esphome.io/components/sensor/aht10) connected to I2C pins (SDA: 12, SCL: 22).
 * A USB cable for power supply and programming.
 
 ### Build ESPHome Zigbee sensor
