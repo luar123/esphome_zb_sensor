@@ -12,7 +12,13 @@ ESPHome Zigbee sensor connected to [AHT10 Temperature+Humidity Sensor](https://n
 **Steps**
 * Build with `esphome run ZB_sensor.yaml` command will fail. 
 * Copy [idf_component.yml](idf_component.yml) to `.esphome/build/zb-sensor/src/`
-* Copy `CONFIG_ZB_ENABLED=y, CONFIG_ZB_RADIO_NATIVE=y, CONFIG_ZB_ZED=y, and ZB_ED_ROLE=y` from `sdkconfig.zb_sensor.esphomeinternal` to `sdkconfig.zb-sensor` (in `.esphome/build/zb-sensor/` directory)
+* Add the following 4 lines to the `.esphome/build/zb-sensor/sdkconfig.zb-sensor` file
+```ini
+CONFIG_ZB_ENABLED=y
+CONFIG_ZB_RADIO_NATIVE=y
+CONFIG_ZB_ZED=y
+ZB_ED_ROLE=y
+```
 * Build with `esphome run ZB_sensor.yaml` command
 
 ### Notes
