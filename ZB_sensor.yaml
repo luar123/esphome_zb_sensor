@@ -31,8 +31,9 @@ i2c:
   scl: 22
 
 sensor:
+    # https://esphome.io/components/sensor/aht10.html
   - platform: aht10
-    variant: AHT10
+    variant: AHT10 # AHT20 for AHT20/AHT30 sensors
     temperature:
       name: "Living Room Temperature"
       id: "temp"
