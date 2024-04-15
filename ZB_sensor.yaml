@@ -55,6 +55,17 @@ sensor:
                 int16_t value = (int16_t)(x*100);
                 reportAttribute(ESP_ZB_ZCL_CLUSTER_ID_REL_HUMIDITY_MEASUREMENT, ESP_ZB_ZCL_ATTR_REL_HUMIDITY_MEASUREMENT_VALUE_ID, &value);
     update_interval: 60s
+  # - platform: tsl2561
+    # name: "TSL2561 Ambient Light"
+    # address: 0x39
+    # update_interval: 60s
+    # accuracy_decimals: 0
+    # id: "lum"
+    # on_value:
+      # then:
+        # - lambda: |-
+              # int16_t value = (int16_t)(x*100);
+              # reportAttribute(ESP_ZB_ZCL_CLUSTER_ID_ILLUMINANCE_MEASUREMENT, ESP_ZB_ZCL_ATTR_ILLUMINANCE_MEASUREMENT_MEASURED_VALUE_ID, &value);
 
 custom_component:
 - lambda: |-
