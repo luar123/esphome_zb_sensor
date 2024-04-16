@@ -41,6 +41,10 @@ ZB_ED_ROLE=y
   * This should be fixed by esphome/esphome#6323 which should be included in ESPHome 2024.3.1.
 * If library versions in [idf_component.yml](idf_component.yml) are changed, copy the file to `.esphome/build/zb-sensor/src/` again and delete `.esphome/build/zb-sensor/.pioenvs`.
 
+## Variants:
+- [Variant for ESP32-C6](https://github.com/lboue/esphome_zb_sensor/blob/ZB_C6_sensor/ZB_C6_sensor.yaml)
+- [Variant with added TSL2561 Sensor and illuminance ZigBee cluster](https://github.com/dronix27/esphome_zb_sensor/tree/master)
+
 ## External documentation and reference
 
 Note! The official documentation and reference examples for the ESP Zigbee SDK can currently be obtained from Espressif:
