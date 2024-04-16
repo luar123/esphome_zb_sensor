@@ -64,7 +64,7 @@ sensor:
     on_value:
       then:
         - lambda: |-
-              int16_t value = (int16_t)(x*100);
+              int16_t value = (int16_t)(10000*log10(x)+1);
               reportAttribute(ESP_ZB_ZCL_CLUSTER_ID_ILLUMINANCE_MEASUREMENT, ESP_ZB_ZCL_ATTR_ILLUMINANCE_MEASUREMENT_MEASURED_VALUE_ID, &value);
 
 custom_component:
