@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This implementation is outdated: Use the [external zigbee component](https://github.com/luar123/zigbee_esphome) for easier setup and more functionality.**
+
 # ESPHome Zigbee sensor using ESP32-H2
 
 ESPHome example of a zigbee sensor.
